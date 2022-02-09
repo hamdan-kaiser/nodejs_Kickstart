@@ -113,15 +113,20 @@ app.put('/api/courses/:id', (req,res) =>{
 
 
 //delete data
-app.delete('/api/courses', (req,res) =>
+app.delete('/api/courses/:id', (req,res) =>
 {
-    const deleteCourse = {
-        id: req.body.id,
-       
-    }
+    //validate data
+    const course = courseList.find(c => c.id ===parseInt(req.params.id))
 
-    courseList.pop(deleteCourse)
+    if(!course)
+        return res.status(400).send("Bad Request")
+    
+    const index = courseList.indexOf(course)
+
+    courseList.splice(index,1)
+
     res.send(courseList)
+    
 })
 
 const port = process.env.port || 3000
