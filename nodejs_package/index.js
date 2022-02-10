@@ -4,7 +4,7 @@ const Joi = require('joi')
 
 const app = Express()
 
-//to push data from a JSON body, we need to use this line below
+//to post data from a JSON body, we need to use this line below
 app.use(Express.json())
 
 
