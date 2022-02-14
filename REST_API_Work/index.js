@@ -6,7 +6,7 @@ const app = Express()
 
 app.use(Express.urlencoded({extended : true}))
 app.use(Express.json())
-app.use(Express.static('public'))
+app.use(Express.static('public/Shine_Academy'))
 app.use('/', route)
 
 app.use(function(req,res,next)
