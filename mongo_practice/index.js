@@ -42,12 +42,15 @@ const create_collection = mongoose.model('second_db',data_model)
  *  - nin(not in)
  */
 
-
+//data find with different methods of queries
 async function findData()
 {
     //const find = await create_collection.find({name: {$eq: "Hamdan Kaiser"}}).select({class:1}) //string query
     //const find = await create_collection.find({marks: {$gte: 70}}).limit(10).select({name:1,class:1}) //Number query
-    const find = await create_collection.find({marks: {$in: [32, 36, 86]}}).limit(10).select({name:1,class:1}) //in between value query
+    //const find = await create_collection.find({marks: {$in: [32, 36, 86]}}).limit(10).select({name:1,class:1}) //in between value query
+    //const find = await create_collection.find({name: /^Ham/i}).limit(10).select({name:1,class:1}) //That starts with
+    //const find = await create_collection.find({name: /r$/i}).limit(10).select({name:1,class:1}) //That ends with
+    const find = await create_collection.find({name: /.*an.*/i}).limit(10).select({name:1,class:1}) //That has in the middle
     console.log(find)
 }
 
