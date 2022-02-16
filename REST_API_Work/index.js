@@ -9,8 +9,13 @@ app.use(Express.json())
 app.use(Express.static('public/Shine_Academy'))
 app.use('/', route)
 
-
-mongoose.connect('mongodb://localhost/beers').then(()=> console.log("Connected....")).catch(err => console.log("Not Connected ",err))
+/***
+ * down to the following lines, it allows you to
+ * connect with the database. if there are no such database
+ * exist, then it creates by the name of path.
+ */
+mongoose.connect('mongodb://localhost/beers').then(()=> console.log("Connected....")).catch(err => 
+                    console.log("Not Connected ",err))
 
 const newSchema = new mongoose.Schema({
     id: String,
@@ -19,15 +24,28 @@ const newSchema = new mongoose.Schema({
 
 })
 
+//create a database if not exist
 const beer = mongoose.model('beers',newSchema)
 
-const addSchema = new beer({
+//add data into created database/collection
+/*const addSchema = new beer({
     id: '1',
     type: 'Ale',
     isAvailable: true
 })
 
-addSchema.save().then(()=> console.log("Data Saved Successfully!")).catch(err => console.log("Database Failed!"))
+//to dave the added data
+addSchema.save().then(()=> console.log("Data Saved Successfully!")).catch(err => console.log("Database Failed!"))*/
+
+async function findData()
+{
+    const findName =await beer.find()
+
+    console.log(findName)
+
+}
+
+findData()
 
 
 app.use(function(req,res,next)
