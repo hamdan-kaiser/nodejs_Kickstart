@@ -17,10 +17,10 @@ mongoose.connect('mongodb://localhost/second_db')
 
 //declare what type of data you want to add
 //in Mongo, it's called create collection
-const data_model =mongoose.Schema({
-    name: String,
+const data_model =new mongoose.Schema({
+    name: {type: String, required: true},
     class: String,
-    marks: Number,
+    marks: {type: Number, required: function() {return this.isPassed}},
     section: String,
     isPassed: Boolean
 })
@@ -43,29 +43,35 @@ const create_collection = mongoose.model('second_db',data_model)
  */
 
 //data find with different methods of queries
-async function findData()
-{
+//async function findData()
+//{
     //const find = await create_collection.find({name: {$eq: "Hamdan Kaiser"}}).select({class:1}) //string query
     //const find = await create_collection.find({marks: {$gte: 70}}).limit(10).select({name:1,class:1}) //Number query
     //const find = await create_collection.find({marks: {$in: [32, 36, 86]}}).limit(10).select({name:1,class:1}) //in between value query
     //const find = await create_collection.find({name: /^Ham/i}).limit(10).select({name:1,class:1}) //That starts with
     //const find = await create_collection.find({name: /r$/i}).limit(10).select({name:1,class:1}) //That ends with
-    const find = await create_collection.find({name: /.*an.*/i}).limit(10).select({name:1,class:1}) //That has in the middle
-    console.log(find)
-}
+   // const find = await create_collection.find({name: /.*an.*/i}).limit(10).select({name:1,class:1}) //That has in the middle
+ //   console.log(find)
+//}
 
-findData()
+//findData()
 
-/*const add_data = new create_collection({
-    name: "Nelson R",
+const add_data = new create_collection({
+   // name: "Bodmas C",
     class: "Twelve",
     marks: 08,
-    section: "D",
-    isPassed: false
+    section: "B",
+    isPassed: true
 })
 
 //save the data to the collection
-add_data.save().then(()=> console.log("Data Saved")).catch(err => console.log(err))*/
+try{
+    add_data.save().then(()=> console.log("Data Saved")).catch(err => console.log(err))
+}
+catch(ex)
+{
+    console.log(ex)
+}
 
 
 app.get('/', (req,res) => {

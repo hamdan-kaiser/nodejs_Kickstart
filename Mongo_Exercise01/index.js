@@ -10,7 +10,9 @@ app.get('/', (req,res) => {
 })
 
 
-mongoose.connect('mongodb://localhost/practice_01').then(()=> console.log("Server Connected!")).catch(err => console.log(err))
+mongoose.connect('mongodb://localhost/practice_01')
+            .then(()=> console.log("Server Connected!"))
+                .catch(err => console.log(err))
 
 //connecting with the collection
 
