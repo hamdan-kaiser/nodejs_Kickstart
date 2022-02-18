@@ -1,0 +1,14 @@
+body{
+    --color-primary:  #62fbe2;
+    --color-primary-dark:  #02b496; 
+    --color-secondary:  #15eb90; 
+    --color-error:  #dd1b00; 
+    --color-success:  #83f213; 
+
+    margin: 0;
+    justify-content: center;
+    font-size: 18px;
+    display: flex;
+    background:var(--color-primary)
+
+}
