@@ -1,13 +1,13 @@
 const Express = require('express')
 const log_data = require('./logger')
 const mongoose = require('mongoose')
-const route = require('./beers')
+//const route = require('./beers')
 const app = Express()
 
 app.use(Express.urlencoded({extended : true}))
 app.use(Express.json())
 app.use(Express.static('public/Shine_Academy'))
-app.use('/', route)
+//app.use('/', route)
 
 /***
  * down to the following lines, it allows you to
