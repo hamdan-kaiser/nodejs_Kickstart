@@ -6,9 +6,19 @@ body{
     --color-success:  #83f213; 
 
     margin: 0;
+    height: 100vh;
     justify-content: center;
+    align-items: center;
     font-size: 18px;
     display: flex;
     background:var(--color-primary)
 
+}
+
+.container{
+    border: 3px outset rebeccapurple;
+    width: auto;
+    max-width: 400px;
+    padding: 1rem;
+    
 }

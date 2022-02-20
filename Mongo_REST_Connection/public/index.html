@@ -18,12 +18,31 @@
     <div class="container">
         <form action="" class="form" id="login">
             <h1 class="form_page">Login</h1>
-            <input type="text" class="form_input" autofocus placeholder="Input username/email"><br>
-            <input type="password" class="password" autofocus placeholder="***********"><br>
-            <input type="button" value="submit">
+            <input type="text" class="form_input" autofocus placeholder="Input username/email" id="uname"><br>
+            <input type="password" class="password" autofocus placeholder="***********" id="upass"><br>
+            <input type="button" value="submit"><br><br>
+            <a href="#" class="link--forgot">Forgot Password</a><br>
+            <a href="#" class="create_account">Don't have an account? Create New</a>
+    
         </form>
-    </div>
 
+        <script>
+            const form_action = document.getElementById('login');
+            const username = document.getElementById('uname');
+            const password = document.getElementById('upass');
+            console.log("Entered in "+login)
+            form_action.addEventListener('submit', printData)
+
+            async function printData(event)
+            {
+                event.preventDefault()
+                console.log(username)
+                console.log(password)
+                console.log("Logged in")
+            }
+
+        </script>
+    </div>
     <script src="index.js"></script>
 </body>
 
